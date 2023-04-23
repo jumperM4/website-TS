@@ -1,5 +1,5 @@
 const modals = () => {
-  interface Selectors {
+  interface ISelectors {
     triggerSelector: string;
     modalSelector: string;
     closeSelector: string;
@@ -11,14 +11,12 @@ const modals = () => {
     modalSelector,
     closeSelector,
     closeClickOverlay,
-  }: Selectors) {
+  }: ISelectors) {
     const triggers = document.querySelectorAll(triggerSelector);
     const modal = document.querySelector<HTMLElement>(modalSelector);
     const close = document.querySelector<HTMLElement>(closeSelector);
     const windows = document.querySelectorAll<HTMLElement>("[data-modal]");
     const scroll = calcScroll();
-
-    console.log(triggers, modal, close);
 
     const closeModel = () => {
       if (modal) {
