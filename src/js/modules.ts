@@ -102,7 +102,7 @@ const modals = () => {
         if (modal) {
           modal.style.display = "block";
           document.body.style.overflow = "hidden";
-          let scroll = calcScroll();
+          const scroll = calcScroll();
           document.body.style.marginRight = `${scroll}px`;
         }
       }
@@ -129,11 +129,10 @@ const modals = () => {
       if (
         !btnPressed &&
         window.pageYOffset + document.documentElement.clientHeight >=
-          document.documentElement.scrollHeight
+          document.documentElement.scrollHeight &&
+        giftIcon
       ) {
-        if (giftIcon) {
-          giftIcon.click();
-        }
+        giftIcon.click();
       }
     });
   };
