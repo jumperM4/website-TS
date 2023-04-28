@@ -18,13 +18,13 @@ const forms = () => {
   };
 
   const postData = async (url: string, data: string) => {
-    let dataJSON = JSON.stringify(data);
+   
     const result = await fetch(url, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: dataJSON,
+      body: data,
     });
     return await result;
   };
@@ -79,9 +79,9 @@ const forms = () => {
 
       const data: any = {};
       formData.forEach((value, key) => (data[key] = value));
-      console.log(data);
+      const dataJSON = JSON.stringify(data);
 
-      postData("https://just-server-yo3y.onrender.com/api/data", data)
+      postData("https://just-server-yo3y.onrender.com/api/data", dataJSON)
         .then((res) => {
           statusImg.setAttribute("src", message.ok);
           textMessage.textContent = message.success;
