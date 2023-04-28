@@ -3,7 +3,8 @@
 const forms = () => {
   const forms = document.querySelectorAll("form");
   const inputs = document.querySelectorAll("input");
-  const upload = document.querySelectorAll('[name="upload"]');
+  const upload: NodeListOf<HTMLInputElement> =
+    document.querySelectorAll('[name="upload"]');
 
   //checkNumInputs('input[name="user_phone"]');
 
@@ -16,13 +17,14 @@ const forms = () => {
     fail: "assets/img/fail.png",
   };
 
-  const postData = async (url: string, data: any) => {
+  const postData = async (url: string, data: string) => {
+    let dataJSON = JSON.stringify(data);
     const result = await fetch(url, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: dataJSON,
     });
     return await result;
   };
@@ -32,17 +34,22 @@ const forms = () => {
       input.value = "";
     });
     upload.forEach((item) => {
-      item.previousElementSibling.textContent = "Файл не выбран";
+      if (item.previousElementSibling) {
+        item.previousElementSibling.textContent = "Файл не выбран";
+      }
     });
   };
 
   upload.forEach((item) => {
     item.addEventListener("input", () => {
-      let dots;
-      const arr = item.files[0].name.split(".");
-      arr[0].length > 5 ? (dots = "...") : (dots = ".");
-      const name = arr[0].substring(0, 6) + dots + arr[1];
-      item.previousElementSibling.textContent = name;
+      if (item.files) {
+        const [fileName, fileExt] = item.files[0].name.split(".");
+        console.log(fileName, fileExt);
+        let dots: string = fileName.length > 5 ? "..." : ".";
+        const name = fileName.substring(0, 6) + dots + fileExt;
+        console.log(item.previousElementSibling);
+        (item.previousElementSibling as Element).textContent = name;
+      }
     });
   });
 
@@ -59,12 +66,12 @@ const forms = () => {
         form.style.display = "none";
       }, 400);
 
-      let statusImg = document.createElement("img");
+      const statusImg = document.createElement("img");
       statusImg.setAttribute("src", message.spinner);
       statusImg.classList.add("animated", "fadeInUp");
       statusMessage.appendChild(statusImg);
 
-      let textMessage = document.createElement("div");
+      const textMessage = document.createElement("div");
       textMessage.textContent = message.loading;
       statusMessage.appendChild(textMessage);
 
@@ -76,7 +83,6 @@ const forms = () => {
 
       postData("https://just-server-yo3y.onrender.com/api/data", data)
         .then((res) => {
-          console.log(res);
           statusImg.setAttribute("src", message.ok);
           textMessage.textContent = message.success;
         })
