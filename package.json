@@ -16,5 +16,8 @@
   "devDependencies": {
     "typescript": "^5.0.4",
     "vite": "^4.2.1"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1"
   }
 }
