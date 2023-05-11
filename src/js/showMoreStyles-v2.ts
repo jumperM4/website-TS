@@ -1,6 +1,6 @@
 import { getResource } from "./services/requests";
 
-const showMoreStyles = (trigger: string, wrapper: string) => {
+const showMoreStyles2 = (trigger: string, wrapper: string) => {
   const btn = document.querySelector(trigger);
 
   const createCards = (response: Array<object>) => {
@@ -44,4 +44,4 @@ const showMoreStyles = (trigger: string, wrapper: string) => {
   });
 };
 
-export default showMoreStyles;
+export default showMoreStyles2;
