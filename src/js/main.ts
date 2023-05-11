@@ -3,6 +3,7 @@ import mask from "./mask";
 import checkTextInputs from "./checkTextInputs";
 import forms from "./forms";
 import showMoreStyles from "./showMoreStyles-v2";
+import showMoreStyles from "./showMoreStyles";
 
 window.addEventListener("DOMContentLoaded", () => {
   modals();
@@ -12,4 +13,5 @@ window.addEventListener("DOMContentLoaded", () => {
   modals();
   forms();
   showMoreStyles(".button-styles", "#styles .row");
+  showMoreStyles(".button-styles", ".styles-2");
 });
