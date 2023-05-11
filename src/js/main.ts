@@ -2,7 +2,7 @@ import modals from "./modules";
 import mask from "./mask";
 import checkTextInputs from "./checkTextInputs";
 import forms from "./forms";
-import showMoreStyles from "./showMoreStyles";
+//import showMoreStyles from "./showMoreStyles";
 
 window.addEventListener("DOMContentLoaded", () => {
   modals();
@@ -11,5 +11,5 @@ window.addEventListener("DOMContentLoaded", () => {
   checkTextInputs('[name="message"]');
   modals();
   forms();
-  showMoreStyles(".button-styles", ".styles-2");
+//  showMoreStyles(".button-styles", ".styles-2");
 });
