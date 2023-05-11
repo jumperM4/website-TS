@@ -3,24 +3,6 @@ import { getResource } from "./services/requests";
 const showMoreStyles = (trigger: string, wrapper: string) => {
   const btn = document.querySelector(trigger);
 
-  if (btn) {
-    btn.addEventListener("click", (e: any) => {
-      getResource("http://localhost:3000/styles")
-        .then((res) => {
-          createCards(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-
-      const { target } = e;
-      console.log(target);
-      if (target.classList.contains === ".button-styles") {
-        console.log(e.target);
-      }
-    });
-  }
-
   const createCards = (response: Array<object>) => {
     response.forEach((item: any) => {
       const card = document.createElement("div");
@@ -37,12 +19,29 @@ const showMoreStyles = (trigger: string, wrapper: string) => {
             <img src=${item.src} alt="style">
  					  <h4>${item.title}</h4>
  					  <a href=${item.link}>Подробнее</a>
-				</div>
-      `;
+				</div>`;
       const divWrapper = document.querySelector(wrapper);
       divWrapper?.appendChild(card);
     });
   };
+
+  if (!btn) {
+    return;
+  }
+
+  btn.addEventListener("click", (e: any) => {
+    getResource("http://localhost:3000/styles")
+      .then((res) => {
+        createCards(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    if (e.target.classList.contains("button-styles")) {
+      e.target.remove();
+    }
+  });
 };
 
 export default showMoreStyles;
