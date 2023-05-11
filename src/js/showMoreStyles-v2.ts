@@ -21,7 +21,7 @@ const showMoreStyles = (trigger: string, wrapper: string) => {
     });
   }
 
-  const createCards = (response: any) => {
+  const createCards = (response: Array<object>) => {
     response.forEach((item: any) => {
       const card = document.createElement("div");
       card.classList.add(
