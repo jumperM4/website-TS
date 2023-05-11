@@ -71,7 +71,7 @@ const forms = () => {
       const dataJSON = JSON.stringify(data);
 
       postData("https://just-server-yo3y.onrender.com/api/data", dataJSON)
-        .then((res) => {
+        .then(() => {
           statusImg.setAttribute("src", message.ok);
           textMessage.textContent = message.success;
         })
