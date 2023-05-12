@@ -29,7 +29,7 @@ const calc = ({ size, material, options, promocode, result }: ISelectors) => {
       if (sizeBlock.value == "" || materialBlock.value == "") {
         resultBlock.textContent =
           "Пожалуйста, выберите размер и материал картины!";
-      } else if (promocodeBlock.value === "IWANTPOPART") {
+      } else if (promocodeBlock.value.toUpperCase() === "IWANTPOPART") {
         resultBlock.textContent = String(Math.round(sum * 0.7));
       } else {
         resultBlock.textContent = String(sum);
