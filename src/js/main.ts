@@ -13,5 +13,11 @@ window.addEventListener("DOMContentLoaded", () => {
   modals();
   forms();
   //  showMoreStyles(".button-styles", ".styles-2");
-  calc("#size", "#material", "#options", ".promocode", ".calc-price");
+  calc({
+    size: "#size",
+    material: "#material",
+    options: "#options",
+    promocode: ".promocode",
+    result: ".calc-price",
+  });
 });

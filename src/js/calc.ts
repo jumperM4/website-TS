@@ -7,15 +7,14 @@ interface ISelectors {
 }
 
 const calc = ({ size, material, options, promocode, result }: ISelectors) => {
-  const sizeBlock = document.querySelector(size);
-  const materialBlock = document.querySelector(material);
-  const optionsBlock = document.querySelector(options);
-  const promocodeBlock = document.querySelector(promocode);
+  const sizeBlock = document.querySelector(size) as HTMLSelectElement;
+  const materialBlock = document.querySelector(material) as HTMLSelectElement;
+  const optionsBlock = document.querySelector(options) as HTMLSelectElement;
+  const promocodeBlock = document.querySelector(promocode) as HTMLInputElement;
   const resultBlock = document.querySelector(result);
 
-  let sum: number = 0;
-
   const calcFunction = () => {
+    let sum: number = 0;
     if (
       sizeBlock &&
       materialBlock &&
@@ -31,17 +30,16 @@ const calc = ({ size, material, options, promocode, result }: ISelectors) => {
         resultBlock.textContent =
           "Пожалуйста, выберите размер и материал картины!";
       } else if (promocodeBlock.value === "IWANTPOPART") {
-        resultBlock.textContent = Math.round(sum * 0.7);
+        resultBlock.textContent = String(Math.round(sum * 0.7));
       } else {
-        resultBlock.textContent = sum;
+        resultBlock.textContent = String(sum);
       }
     }
-
-    sizeBlock?.addEventListener("change", calcFunction);
-    materialBlock?.addEventListener("change", calcFunction);
-    optionsBlock?.addEventListener("change", calcFunction);
-    promocodeBlock?.addEventListener("input", calcFunction);
   };
+  sizeBlock?.addEventListener("change", calcFunction);
+  materialBlock?.addEventListener("change", calcFunction);
+  optionsBlock?.addEventListener("change", calcFunction);
+  promocodeBlock?.addEventListener("input", calcFunction);
 };
 
 export default calc;
