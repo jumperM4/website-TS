@@ -4,6 +4,7 @@ import checkTextInputs from "./checkTextInputs";
 import forms from "./forms";
 import showMoreStyles2 from "./showMoreStyles-v2";
 //import showMoreStyles from "./showMoreStyles";
+import calc from "./calc";
 
 window.addEventListener("DOMContentLoaded", () => {
   modals();
@@ -12,6 +13,13 @@ window.addEventListener("DOMContentLoaded", () => {
   checkTextInputs('[name="message"]');
   modals();
   forms();
+  calc({
+    size: "#size",
+    material: "#material",
+    options: "#options",
+    promocode: ".promocode",
+    result: ".calc-price",
+  });
  // showMoreStyles(".button-styles", "#styles .row");
   showMoreStyles2(".button-styles", ".styles-2");
 });
