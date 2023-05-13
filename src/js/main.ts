@@ -5,6 +5,7 @@ import forms from "./forms";
 import showMoreStyles2 from "./showMoreStyles-v2";
 //import showMoreStyles from "./showMoreStyles";
 import calc from "./calc";
+import filter from "./filter";
 
 window.addEventListener("DOMContentLoaded", () => {
   modals();
@@ -20,6 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
     promocode: ".promocode",
     result: ".calc-price",
   });
- // showMoreStyles(".button-styles", "#styles .row");
+  // showMoreStyles(".button-styles", "#styles .row");
   showMoreStyles2(".button-styles", ".styles-2");
+  filter();
 });
