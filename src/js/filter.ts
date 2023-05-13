@@ -48,7 +48,7 @@ const filter = () => {
     no.classList.remove("animated", "fadeIn");
 
     if (markType) {
-    markType.forEach((mark: HTMLDivElement) => {
+      markType.forEach((mark: HTMLDivElement) => {
         mark.style.display = "block";
         mark.classList.add("animated", "fadeIn");
       });
@@ -82,6 +82,21 @@ const filter = () => {
   btnGranddad?.addEventListener("click", () => {
     typeFilter();
   });
+
+  // const params: any = [
+  //   { btnAll, markAll },
+  //   { btnLovers, markLovers },
+  //   { btnChef, markChef },
+  //   { btnGirl, markGirl },
+  //   { btnGuy, markGuy },
+  //   { btnGranddad },
+  //   { btnGrandmother },
+  // ];
+
+  // params.forEach(({ elem, type }: any) => {
+  //   console.log(elem, type);
+  //   elem.onclick = typeFilter(type);
+  // });
 
   menu?.addEventListener("click", (e: any) => {
     let { target } = e;
