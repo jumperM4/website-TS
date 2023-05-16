@@ -25,5 +25,5 @@ window.addEventListener("DOMContentLoaded", () => {
   // showMoreStyles(".button-styles", "#styles .row");
   showMoreStyles2(".button-styles", ".styles-2");
   filter();
-  accordion(".accordion-heading", ".accordion-block");
+  accordion(".accordion-heading");
 });
