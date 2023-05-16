@@ -6,6 +6,7 @@ import showMoreStyles2 from "./showMoreStyles-v2";
 //import showMoreStyles from "./showMoreStyles";
 import calc from "./calc";
 import filter from "./filter";
+import accordion from "./accordion";
 import pictureSize from "./pictureSize";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -25,5 +26,6 @@ window.addEventListener("DOMContentLoaded", () => {
   // showMoreStyles(".button-styles", "#styles .row");
   showMoreStyles2(".button-styles", ".styles-2");
   filter();
+  accordion(".accordion-heading");
   pictureSize('.sizes-block');
 });
