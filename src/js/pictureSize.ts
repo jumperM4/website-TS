@@ -21,16 +21,15 @@ const pictureSize = (imgSelector: string) => {
     const img = block.querySelector("img") as HTMLImageElement;
     if (!img) {
       return;
-    } else {
-      img.src = img.src.slice(0, -6) + ".png";
-      (
-        block.querySelectorAll(
-          "p:not(.sizes-hit)"
-        ) as NodeListOf<HTMLParagraphElement>
-      ).forEach((p) => {
-        p.style.display = "block";
-      });
     }
+    img.src = img.src.slice(0, -6) + ".png";
+    (
+      block.querySelectorAll(
+        "p:not(.sizes-hit)"
+      ) as NodeListOf<HTMLParagraphElement>
+    ).forEach((p) => {
+      p.style.display = "block";
+    });
   };
 
   blocks.forEach((block) => {
