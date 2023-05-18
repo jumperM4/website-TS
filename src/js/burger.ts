@@ -5,15 +5,15 @@ const burger = (menuSel: string, burgerSel: string) => {
   menuElem.style.display = "none";
 
   burgerElem?.addEventListener("click", () => {
-    if (menuElem.style.display == "none" && window.screen.availWidth < 993) {
-      menuElem.style.display = "block";
-    } else {
-      menuElem.style.display = "none";
-    }
+    const breakpoint: number = 993;
+    menuElem.style.display == "none" && window.screen.availWidth < breakpoint
+      ? (menuElem.style.display = "block")
+      : (menuElem.style.display = "none");
   });
 
   window.addEventListener("resize", () => {
-    if (window.screen.availWidth > 990) {
+    const breakpoint: number = 990;
+    if (window.screen.availWidth > breakpoint) {
       menuElem.style.display = "none";
     }
   });
