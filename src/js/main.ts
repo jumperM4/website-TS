@@ -8,6 +8,7 @@ import calc from "./calc";
 import filter from "./filter";
 import accordion from "./accordion";
 import pictureSize from "./pictureSize";
+import scrolling from "./scrolling";
 
 window.addEventListener("DOMContentLoaded", () => {
   modals();
@@ -27,5 +28,6 @@ window.addEventListener("DOMContentLoaded", () => {
   showMoreStyles2(".button-styles", ".styles-2");
   filter();
   accordion(".accordion-heading");
-  pictureSize('.sizes-block');
+  pictureSize(".sizes-block");
+  scrolling(".pageup");
 });
