@@ -9,6 +9,7 @@ import filter from "./filter";
 import accordion from "./accordion";
 import pictureSize from "./pictureSize";
 import burger from "./burger";
+import drop from "./dragAndDrop";
 
 window.addEventListener("DOMContentLoaded", () => {
   modals();
@@ -30,4 +31,5 @@ window.addEventListener("DOMContentLoaded", () => {
   accordion(".accordion-heading");
   pictureSize(".sizes-block");
   burger(".burger-menu", ".burger");
+  drop();
 });
