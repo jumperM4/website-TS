@@ -13,21 +13,24 @@ const drop = () => {
     });
   });
 
-  const highlightON = (item: any) => {
-    console.log(item);
-    item.closest(".file_upload").style.border = "5px solid yellow";
-    item.closest(".file_upload").style.background = "rgba(0, 0, 0, 0.7)";
+  const highlightON = (item: HTMLInputElement) => {
+    if (item) {
+      (item.closest(".file_upload") as HTMLElement).style.border =
+        "5px solid yellow";
+      (item.closest(".file_upload") as HTMLElement).style.background =
+        "rgba(0, 0, 0, 0.7)";
+    }
   };
 
-  const highlightOFF = (item: any) => {
+  const highlightOFF = (item: HTMLInputElement) => {
     if (item.closest(".file_upload")) {
-      item.closest(".file_upload").style.border = "none";
+      (item.closest(".file_upload") as HTMLElement).style.border = "none";
     }
-    if (item.closest(".calc_form")) {
-      item.closest(".file_upload").style.background = "#fff";
-    } else {
-      item.closest(".file_upload").style.background = "#ededed";
-    }
+    item.closest(".calc_form")
+      ? ((item.closest(".file_upload") as HTMLElement).style.background =
+          "#fff")
+      : ((item.closest(".file_upload") as HTMLElement).style.background =
+          "#ededed");
   };
 
   ["dragenter", "dragover"].forEach((eventName) => {
@@ -49,7 +52,9 @@ const drop = () => {
         const [fileName, fileExt] = input.files[0].name.split(".");
         let dots: string = fileName.length > 5 ? "..." : ".";
         const name = fileName.substring(0, 6) + dots + fileExt;
-        (input.previousElementSibling as Element).textContent = name;
+        const btn = input.closest(".file_upload");
+        (btn?.querySelector("button") as HTMLButtonElement).textContent = name;
+        // (input.previousElementSibling as Element).textContent = name;
       }
     });
   });
