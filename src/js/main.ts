@@ -10,6 +10,7 @@ import accordion from "./accordion";
 import pictureSize from "./pictureSize";
 import scrolling from "./scrolling";
 import burger from "./burger";
+import drop from "./dragAndDrop";
 
 window.addEventListener("DOMContentLoaded", () => {
   modals();
@@ -32,4 +33,5 @@ window.addEventListener("DOMContentLoaded", () => {
   pictureSize(".sizes-block");
   scrolling(".pageup");
   burger(".burger-menu", ".burger");
+  drop();
 });
