@@ -8,6 +8,7 @@ import calc from "./calc";
 import filter from "./filter";
 import accordion from "./accordion";
 import pictureSize from "./pictureSize";
+import scrolling from "./scrolling";
 import burger from "./burger";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -29,5 +30,6 @@ window.addEventListener("DOMContentLoaded", () => {
   filter();
   accordion(".accordion-heading");
   pictureSize(".sizes-block");
+  scrolling(".pageup");
   burger(".burger-menu", ".burger");
 });
